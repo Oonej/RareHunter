@@ -470,6 +470,13 @@ namespace RareHunter
 		{
 			try
 			{
+                string[] keys = new string[rl.getList().Count];
+                rl.getList().Keys.CopyTo(keys, 0);
+                for (int i = 0; i < rl.rareCount.Count; i++)
+                {
+                    rl.SetValue(keys[i], 0);
+                }
+
                 //update rare list from inventory
                 WorldObjectCollection woc = Core.WorldFilter.GetInventory();
                 foreach (WorldObject wo in woc)

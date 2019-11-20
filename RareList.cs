@@ -319,6 +319,11 @@ namespace RareHunter
             rareCount[name] += value;
         }
 
+        public void SetValue(string name, int value)
+        {
+            rareCount[name] = value;
+        }
+
         public void resetCounts()
         {
             foreach (KeyValuePair<string, int> entry in rareCount)
