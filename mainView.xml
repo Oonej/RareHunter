@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<view icon="23829" title="Rare Hunter" width="300" height="270">
+  <control progid="DecalControls.Notebook" name="nbMain">
+    <page label=" Rares ">
+      <control progid="DecalControls.FixedLayout" clipped="">
+        <control progid="DecalControls.StaticText" name="killrateLbl" left="10" top="10" width="90" height="18" text="Kills:"/>
+        <control progid="DecalControls.StaticText" name="timeLbl" left="10" top="30" width="90" height="18" text="Time:"/>
+        <control progid="DecalControls.StaticText" name="killshrLbl" left="10" top="50" width="90" height="18" text="Kills/Hr:"/>
+        <control progid="DecalControls.StaticText" name="raresLbl" left="10" top="80" width="90" height="18" text="Rares Found:"/>
+        
+        <control progid="DecalControls.StaticText" name="killrate" left="100" top="10" width="90" height="18" text="0"/>
+        <control progid="DecalControls.StaticText" name="time" left="100" top="30" width="90" height="18" text="0"/>
+        <control progid="DecalControls.StaticText" name="killshr" left="100" top="50" width="90" height="18" text="0"/>
+        <control progid="DecalControls.StaticText" name="rares" left="100" top="80" width="90" height="18" text="0"/>
+
+        <control progid="DecalControls.PushButton" name="resetstats" left="10" top="160" width="280" height="20" text="RESET"/>
+        <control progid="DecalControls.PushButton" name="broadcaststats" left="10" top="185" width="90" height="20" text="Report"/>
+        <control progid="DecalControls.PushButton" name="broadcaststatsa" left="105" top="185" width="90" height="20" text="Report /a"/>
+        <control progid="DecalControls.PushButton" name="broadcaststatsf" left="200" top="185" width="90" height="20" text="Report /f"/>
+      </control>
+    </page>
+    <page label=" Found ">
+      <control progid="DecalControls.FixedLayout" clipped="">
+        <control progid="DecalControls.List" name="raresFound" left="0" top="0" width="300" height="175"/>
+        <control progid="DecalControls.PushButton" name="exportHistory" left="10" top="180" width="280" height="20" text="EXPORT HISTORY"/>
+        <control progid="DecalControls.PushButton" name="resetHistory" left="10" top="200" width="280" height="20" text="RESET HISTORY"/>
+      </control>
+    </page>
+    <page label=" Inv. ">
+      <control progid="DecalControls.FixedLayout" clipped="">
+        <control progid="DecalControls.List" name="inventoryRares" left="0" top="0" width="300" height="180"/>
+        <control progid="DecalControls.CheckBox" name="showAll" left="20" top="202" width="90" height="18" text="Show All"/>
+        <control progid="DecalControls.StaticText" name="totalInvRares" left="100" top="200" width="120" height="18" text="Total Rares: 0"/>
+        <control progid="DecalControls.PushButton" name="refreshRares" left="200" top="200" width="90" height="20" text="Refresh"/>
+      </control>
+    </page>
+    <page label=" Settings ">
+      <control progid="DecalControls.Notebook" name="settingsMain">
+        <page label=" Email ">
+          <control progid="DecalControls.FixedLayout" clipped="">
+            <control progid="DecalControls.StaticText" name="sendEmaillbl" left="10" top="10" width="90" height="18" text="Send Emails:"/>
+            <control progid="DecalControls.StaticText" name="emaillbl" left="10" top="35" width="90" height="18" text="Email:"/>
+            <control progid="DecalControls.StaticText" name="passwordlbl" left="10" top="60" width="90" height="18" text="Pass:"/>
+            <control progid="DecalControls.StaticText" name="hostlbl" left="10" top="85" width="90" height="18" text="Host:"/>
+            <control progid="DecalControls.StaticText" name="portlbl" left="10" top="110" width="90" height="18" text="Port:"/>
+            <control progid="DecalControls.StaticText" name="enabless1lbl" left="10" top="135" width="90" height="18" text="Enable SS1:"/>
+
+            <control progid="DecalControls.CheckBox" name="sendEmailValue" left="100" top="10" width="90" height="18" text=""/>
+            <control progid="DecalControls.Edit" name="emailValue" left="100" top="35" width="188" height="18" text="0"/>
+            <control progid="DecalControls.Edit" name="passwordValue" left="100" top="60" width="188" height="18" text="0"/>
+            <control progid="DecalControls.Edit" name="hostValue" left="100" top="85" width="188" height="18" text="0"/>
+            <control progid="DecalControls.Edit" name="portValue" left="100" top="110" width="188" height="18" text=""/>
+            <control progid="DecalControls.CheckBox" name="enableSS1Value" left="100" top="135" width="90" height="18" text=""/>
+
+            <control progid="DecalControls.PushButton" name="emailSave" left="10" top="160" width="280" height="20" text="Save Settings"/>
+
+            <control progid="DecalControls.PushButton" name="testEmail" left="10" top="185" width="280" height="20" text="Test Email Settings"/>
+          </control>
+        </page>
+        <page label=" Discord ">
+          <control progid="DecalControls.FixedLayout" clipped="">
+            <control progid="DecalControls.StaticText" name="discordWebhooklbl" left="10" top="10" width="90" height="18" text="Discord Webhook:"/>
+            <control progid="DecalControls.CheckBox" name="discordWebhookValue" left="100" top="10" width="90" height="18" text=""/>
+            <control progid="DecalControls.StaticText" name="discordWebhookURLlbl" left="10" top="35" width="90" height="18" text="URL"/>
+            <control progid="DecalControls.Edit" name="discordWebhookURLValue" left="100" top="35" width="188" height="18" text="0"/>
+
+            <control progid="DecalControls.PushButton" name="discordSave" left="10" top="160" width="280" height="20" text="Save Settings"/>
+
+            <control progid="DecalControls.PushButton" name="testDiscord" left="10" top="185" width="280" height="20" text="Test Discord Settings"/>
+          </control>
+        </page>
+      </control>
+     
+    </page>
+  </control>
+</view>
