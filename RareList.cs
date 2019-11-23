@@ -86,7 +86,6 @@ namespace RareHunter
                 rareCount.Add("Medicated Mana Kit", 0);
                 rareCount.Add("Casino Exquisite Keyring", 0);
                 rareCount.Add("Grand Casino Golden Keyring", 0);
-                rareCount.Add("Grand Casino Golden Keyring", 0);
                 rareCount.Add("Shimmering Skeleton Key", 0);
                 rareCount.Add("Adept's Fervor", 0);
                 rareCount.Add("Bracers of Leikotha's Tears", 0);

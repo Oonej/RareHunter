@@ -346,7 +346,7 @@ namespace RareHunter
             {
                 SendEmail = true;
                 sendemail.Checked = true;
-                saveEmail.Visible = true;
+                testEmail.Visible = true;
                 email.UserChangeable = true;
                 pass.UserChangeable = true;
                 host.UserChangeable = true;
@@ -357,7 +357,7 @@ namespace RareHunter
             {
                 sendemail.Checked = false;
                 SendEmail = false;
-                saveEmail.Visible = false;
+                testEmail.Visible = false;
                 email.UserChangeable = false;
                 pass.UserChangeable = false;
                 host.UserChangeable = false;
@@ -503,14 +503,23 @@ namespace RareHunter
 
         private void loadCSV()
         {
+            raresFound.ClearRows();
             List<string> temp = Util.ImportCSV();
+
+            HudList.HudListRowAccessor testRow2 = raresFound.InsertRow(0);
+            
+            ((HudStaticText)testRow2[0]).Text = " ";
+            ((HudStaticText)testRow2[1]).Text = "Name";
+            ((HudStaticText)testRow2[2]).Text = "#";
+            ((HudStaticText)testRow2[3]).Text = "Time";
+            ((HudStaticText)testRow2[4]).Text = "Date";
 
             foreach (string s in temp)
             {
                 string[] split = s.Split(',');
                 HudList.HudListRowAccessor testRow = raresFound.InsertRow(0);
                 ((HudStaticText)testRow[0]).Text = split[0] + "";
-                ((HudStaticText)testRow[1]).Text = split[1] + "";
+                ((HudStaticText)testRow[1]).Text = split[1].Replace('!', ' ').Trim() + "";
                 ((HudStaticText)testRow[2]).Text = split[2] + "";
                 ((HudStaticText)testRow[3]).Text = split[3] + "";
 
