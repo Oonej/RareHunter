@@ -508,11 +508,11 @@ namespace RareHunter
 
             HudList.HudListRowAccessor testRow2 = raresFound.InsertRow(0);
             
-            ((HudStaticText)testRow2[0]).Text = " ";
-            ((HudStaticText)testRow2[1]).Text = "Name";
-            ((HudStaticText)testRow2[2]).Text = "#";
-            ((HudStaticText)testRow2[3]).Text = "Time";
-            ((HudStaticText)testRow2[4]).Text = "Date";
+            //((HudStaticText)testRow2[0]).Text = " ";
+            //((HudStaticText)testRow2[1]).Text = "Name";
+            //((HudStaticText)testRow2[2]).Text = "#";
+            //((HudStaticText)testRow2[3]).Text = "Time";
+            //((HudStaticText)testRow2[4]).Text = "Date";
 
             foreach (string s in temp)
             {

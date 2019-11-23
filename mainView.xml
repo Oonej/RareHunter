@@ -21,7 +21,14 @@
     </page>
     <page label=" Found ">
       <control progid="DecalControls.FixedLayout" clipped="">
-        <control progid="DecalControls.List" name="raresFound" left="0" top="0" width="300" height="175"/>
+
+        <control progid="DecalControls.StaticText" name="countlbl" left="0" top="2" width="90" height="18" text=" "/>
+        <control progid="DecalControls.StaticText" name="Namelbl" left="28" top="2" width="90" height="18" text="Name"/>
+        <control progid="DecalControls.StaticText" name="Rlbl" left="135" top="2" width="90" height="18" text="Kills"/>
+        <control progid="DecalControls.StaticText" name="Timelbl" left="182" top="2" width="90" height="18" text="Time"/>
+        <control progid="DecalControls.StaticText" name="Datelbl" left="240" top="2" width="90" height="18" text="Date"/>
+        
+        <control progid="DecalControls.List" name="raresFound" left="0" top="18" width="300" height="155"/>
         <control progid="DecalControls.PushButton" name="exportHistory" left="10" top="180" width="280" height="20" text="EXPORT HISTORY"/>
         <control progid="DecalControls.PushButton" name="resetHistory" left="10" top="200" width="280" height="20" text="RESET HISTORY"/>
       </control>
