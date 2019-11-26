@@ -39,25 +39,8 @@ namespace RareHunter
                         { "avatar_url", "http://acpedia.org/images/0/0d/Pack_%28Rare%29_Icon.png" },
                         { "content", this.msg }
                     });
-                    //HttpWebRequest req = (HttpWebRequest)WebRequest.Create(new Uri(this.url));
-                    //req.Method = "POST";
-                    //req.ContentType = "application/json";
 
-                    //using (var streamWriter = new StreamWriter(req.GetRequestStream()))
-                    //{
-                    //    streamWriter.Write(DiscordJson(this.rarename));
-                    //    streamWriter.Flush();
-                    //    streamWriter.Close();
-                    //}
-
-                    //Util.WriteToChat("Broadcasting : " + DiscordJson(this.rarename));
-
-                    //var httpResponse = (HttpWebResponse)req.GetResponse();
-
-                    //using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                    //{
-                    //    var responseText = streamReader.ReadToEnd();
-                    //}
+                    RareHunter.discordSending = false;
                 }
                 
             }

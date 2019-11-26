@@ -103,6 +103,7 @@ namespace RareHunter
 
         public bool SendEmail = false;
         public bool SendDiscord = false;
+        public static bool discordSending = false;
         public static bool emailSending = false;
         public static bool addingToList = false;
         public int killssincelast = 0;
@@ -212,8 +213,9 @@ namespace RareHunter
                                 EmailSender.sendEmail("NEW RARE! " + rareName, Core.CharacterFilter.Name + " has discovered the " + rareName);
                             }
 
-                            if(SendDiscord)
+                            if(SendDiscord && !discordSending)
                             {
+                                discordSending = true;
                                 DiscordSender.sendMsg(Core.CharacterFilter.Name + " has discovered the " + rareName);
                             }
 
