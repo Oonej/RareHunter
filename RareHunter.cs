@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Decal.Adapter;
 using Decal.Adapter.Wrappers;
@@ -92,8 +92,12 @@ namespace RareHunter
         public HudButton exportHistory { get; private set; }
         public HudButton resetHistory { get; private set; }
 
-        //public TimeSpan timer = new TimeSpan(0, 0, 0);
-        //public DateTime timeStart = new DateTime();
+        public HudCheckBox tier1cb { get; private set; }
+        public HudCheckBox tier2cb { get; private set; }
+        public HudCheckBox tier3cb { get; private set; }
+        public HudCheckBox tier4cb { get; private set; }
+        public HudCheckBox tier5cb { get; private set; }
+        public HudCheckBox tier6cb { get; private set; }
 
         public HudCheckBox showAllCB { get; private set; }
 
@@ -157,7 +161,6 @@ namespace RareHunter
 
                         if (match.Success)
                         {
-                            //TODO: Incrememt counter here
                             killValue++;
                             killrate.Text = killValue + "";
                             break;
@@ -166,6 +169,7 @@ namespace RareHunter
                 }
                 else if (ChatMessages.IsRareFindMessage(e.Text))
                 {
+                    string rareName = "";
                     foreach (Regex regex in ChatMessages.RareFind)
                     {
                         Match match = regex.Match(e.Text);
@@ -179,12 +183,11 @@ namespace RareHunter
                             killssincelast = killValue;
                             string playerName = match.Groups["targetname"].Value;
 
-                            string rareName = match.Groups["rarename"].Value;
+                            rareName = match.Groups["rarename"].Value;
 
                             if (!addingToList)
                             {
                                 addingToList = true;
-
                                 HudList.HudListRowAccessor testRow = raresFound.InsertRow(0);
                                 ((HudStaticText)testRow[0]).Text = raresFound.RowCount + "";
                                 ((HudStaticText)testRow[1]).Text = rareName;
@@ -205,20 +208,22 @@ namespace RareHunter
                                 addingToList = false;
                             }
 
-
-                            //IF FOUND RARE : SEND EMAIL
-                            if (SendEmail && !emailSending)
+                            if (rareName != "" && tierActive(rareName.Replace('!', ' ').Trim()))
                             {
-                                emailSending = true;
-                                EmailSender.sendEmail("NEW RARE! " + rareName, Core.CharacterFilter.Name + " has discovered the " + rareName);
-                            }
+                                //IF FOUND RARE : SEND EMAIL
+                                if (SendEmail && !emailSending)
+                                {
+                                    emailSending = true;
+                                    EmailSender.sendEmail("NEW RARE! " + rareName, Core.CharacterFilter.Name + " has discovered the " + rareName);
+                                }
 
-                            if(SendDiscord && !discordSending)
-                            {
-                                discordSending = true;
-                                DiscordSender.sendMsg(Core.CharacterFilter.Name + " has discovered the " + rareName);
+                                //IF FOUND RARE : SEND DISCORD
+                                if (SendDiscord && !discordSending)
+                                {
+                                    discordSending = true;
+                                    DiscordSender.sendMsg(Core.CharacterFilter.Name + " has discovered the " + rareName);
+                                }
                             }
-
                             break;
                         }
                     }
@@ -226,9 +231,38 @@ namespace RareHunter
             }
             catch(Exception ex)
             {
-                Util.WriteToChat("Error: " + ex.Message);
+                Util.WriteToChat("x Error: " + ex.Message + "\n " + ex.Source + "\n " + ex.StackTrace);
             }
             
+        }
+
+        private bool tierActive(string name)
+        {
+            if(rl.rareCount.ContainsKey(name))
+            {
+                switch(rl.rareCount[name].tier)
+                {
+                    case 1:
+                        return tier1cb.Checked;
+                    case 2:
+                        return tier2cb.Checked;
+                    case 3:
+                        return tier3cb.Checked;
+                    case 4:
+                        return tier4cb.Checked;
+                    case 5:
+                        return tier5cb.Checked;
+                    case 6:
+                        return tier6cb.Checked;
+                    default:
+                        return false;
+                }
+            }
+            else
+            {
+                Util.WriteToChat("Could not find rare " + name + ". Please report to Invisible Fire on RC ");
+                return false;
+            }
         }
 
         private void LoadWindow()
@@ -297,6 +331,24 @@ namespace RareHunter
             discordwebhook.Change += new EventHandler(SendDiscordHookChanged);
 
             discordurl = view != null ? (HudTextBox)view["discordWebhookURLValue"] : new HudTextBox();
+
+            tier1cb = view != null ? (HudCheckBox)view["notifytier1"] : new HudCheckBox();
+            tier1cb.Change += new EventHandler(SaveEmailSettings);
+
+            tier2cb = view != null ? (HudCheckBox)view["notifytier2"] : new HudCheckBox();
+            tier2cb.Change += new EventHandler(SaveEmailSettings);
+
+            tier3cb = view != null ? (HudCheckBox)view["notifytier3"] : new HudCheckBox();
+            tier3cb.Change += new EventHandler(SaveEmailSettings);
+
+            tier4cb = view != null ? (HudCheckBox)view["notifytier4"] : new HudCheckBox();
+            tier4cb.Change += new EventHandler(SaveEmailSettings);
+
+            tier5cb = view != null ? (HudCheckBox)view["notifytier5"] : new HudCheckBox();
+            tier5cb.Change += new EventHandler(SaveEmailSettings);
+
+            tier6cb = view != null ? (HudCheckBox)view["notifytier6"] : new HudCheckBox();
+            tier6cb.Change += new EventHandler(SaveEmailSettings);
         }
 
         private void exporthistoryEvent(object sender, EventArgs e)
@@ -398,7 +450,7 @@ namespace RareHunter
         {
             EmailSender = new Email(email.Text, host.Text, int.Parse(port.Text), ss1.Checked, pass.Text);
             DiscordSender = new Discord(discordurl.Text);
-            Util.SaveIni(SendEmail, email.Text, pass.Text, host.Text, int.Parse(port.Text), ss1.Checked, discordwebhook.Checked, discordurl.Text);
+            Util.SaveIni(SendEmail, email.Text, pass.Text, host.Text, int.Parse(port.Text), ss1.Checked, discordwebhook.Checked, discordurl.Text, tier1cb.Checked, tier2cb.Checked, tier3cb.Checked, tier4cb.Checked, tier5cb.Checked, tier6cb.Checked);
         }
 
         private void BroadCastMessage(object sender, EventArgs e)
@@ -429,7 +481,6 @@ namespace RareHunter
             }
 
             Core.Actions.InvokeChatParser("/a You have killed " + killValue + " creatures in " + temp);
-            //Util.WriteToChat("You have killed " + killValue + " creatures in " + temp);
         }
 
         private void BroadCastMessagef(object sender, EventArgs e)
@@ -445,7 +496,6 @@ namespace RareHunter
             }
 
             Core.Actions.InvokeChatParser("/f You have killed " + killValue + " creatures in " + temp);
-            //Util.WriteToChat("You have killed " + killValue + " creatures in " + temp);
         }
 
         private void RefreshRaresButtonClick(object sender, EventArgs e)
@@ -487,11 +537,11 @@ namespace RareHunter
                     {
                         if (wo.Values(LongValueKey.StackCount) > 0)
                         {
-                            rl.rareCount[wo.Name] += wo.Values(LongValueKey.StackCount);
+                            rl.rareCount[wo.Name].count += wo.Values(LongValueKey.StackCount);
                         }
                         else
                         {
-                            rl.rareCount[wo.Name] += 1;
+                            rl.rareCount[wo.Name].count += 1;
                         }
                     }
                 }
@@ -509,12 +559,6 @@ namespace RareHunter
             List<string> temp = Util.ImportCSV();
 
             HudList.HudListRowAccessor testRow2 = raresFound.InsertRow(0);
-            
-            //((HudStaticText)testRow2[0]).Text = " ";
-            //((HudStaticText)testRow2[1]).Text = "Name";
-            //((HudStaticText)testRow2[2]).Text = "#";
-            //((HudStaticText)testRow2[3]).Text = "Time";
-            //((HudStaticText)testRow2[4]).Text = "Date";
 
             foreach (string s in temp)
             {
@@ -541,23 +585,23 @@ namespace RareHunter
                 {
                     HudList.HudListRowAccessor newRow = totalRares.AddRow();
                     ((HudStaticText)newRow[0]).Text = entry.Key;
-                    ((HudStaticText)newRow[1]).Text = entry.Value.ToString();
+                    ((HudStaticText)newRow[1]).Text = $"{entry.Value}";
                 }
             }
             else
             {
-                foreach (KeyValuePair<string, int> entry in rl.getList())
+                foreach (KeyValuePair<string, RareItem> entry in rl.getList())
                 {
                     HudList.HudListRowAccessor newRow = totalRares.AddRow();
                     ((HudStaticText)newRow[0]).Text = entry.Key;
-                    ((HudStaticText)newRow[1]).Text = entry.Value.ToString();
+                    ((HudStaticText)newRow[1]).Text = $"{entry.Value.count}";
                 }
             }
 
             int count = 0;
-            foreach(KeyValuePair<string, int> entry in rl.getList())
+            foreach(KeyValuePair<string, RareItem> entry in rl.getList())
             {
-                count += entry.Value;
+                count += entry.Value.count;
             }
 
             totalInvRares.Text = "Total Rares: " + count;
@@ -619,7 +663,35 @@ namespace RareHunter
                 discordurl.Text = emailsettings["discordurl"];
             }
 
+            if (emailsettings.ContainsKey("tier1") && emailsettings["tier1"] != " " && emailsettings["tier1"] != "")
+            {
+                tier1cb.Checked = bool.Parse(emailsettings["tier1"]);
+            }
 
+            if (emailsettings.ContainsKey("tier2") && emailsettings["tier2"] != " " && emailsettings["tier2"] != "")
+            {
+                tier2cb.Checked = bool.Parse(emailsettings["tier2"]);
+            }
+
+            if (emailsettings.ContainsKey("tier3") && emailsettings["tier3"] != " " && emailsettings["tier3"] != "")
+            {
+                tier3cb.Checked = bool.Parse(emailsettings["tier3"]);
+            }
+
+            if (emailsettings.ContainsKey("tier4") && emailsettings["tier4"] != " " && emailsettings["tier4"] != "")
+            {
+                tier4cb.Checked = bool.Parse(emailsettings["tier4"]);
+            }
+
+            if (emailsettings.ContainsKey("tier5") && emailsettings["tier5"] != " " && emailsettings["tier5"] != "")
+            {
+                tier5cb.Checked = bool.Parse(emailsettings["tier5"]);
+            }
+
+            if (emailsettings.ContainsKey("tier6") && emailsettings["tier6"] != " " && emailsettings["tier6"] != "")
+            {
+                tier6cb.Checked = bool.Parse(emailsettings["tier6"]);
+            }
         }
 
         public void GenerateLists()
@@ -629,7 +701,6 @@ namespace RareHunter
             raresFound.AddColumn(typeof(HudStaticText), 35, "killssincelast");
             raresFound.AddColumn(typeof(HudStaticText), 50, "time");
             raresFound.AddColumn(typeof(HudStaticText), 45, "date");
-
             totalRares.AddColumn(typeof(HudStaticText), 250, "name");
             totalRares.AddColumn(typeof(HudStaticText), 20, "qty");
             
