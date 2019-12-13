@@ -91,14 +91,14 @@ namespace RareHunter
 			catch (Exception ex) { LogError(ex); }
 		}
 
-        public static void SaveIni(bool sendemail, string email, string password, string host, int port, bool ss1, bool senddiscord, string discordurl)
+        public static void SaveIni(bool sendemail, string email, string password, string host, int port, bool ss1, bool senddiscord, string discordurl, bool t1, bool t2, bool t3, bool t4, bool t5, bool t6)
         {
             try
             {
                 string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string filePath = Path.Combine(assemblyFolder, "rarehunter.ini");
 
-                if(!File.Exists(filePath))
+                if (!File.Exists(filePath))
                 {
                     File.Create(filePath).Close();
 
@@ -112,6 +112,13 @@ namespace RareHunter
                         writer.WriteLine("ss1: ");
                         writer.WriteLine("discordenable: ");
                         writer.WriteLine("discordurl: ");
+                        writer.WriteLine("tier: ");
+                        writer.WriteLine("tier1:");
+                        writer.WriteLine("tier2:");
+                        writer.WriteLine("tier3:");
+                        writer.WriteLine("tier4:");
+                        writer.WriteLine("tier5:");
+                        writer.WriteLine("tier6:");
                         writer.Close();
                     }
                 }
@@ -120,44 +127,22 @@ namespace RareHunter
 
                 using (StreamWriter writer = new StreamWriter(filePath, false))
                 {
-                    foreach (string line in lines)
-                    {
-                        if(line.Contains("sendemail:"))
-                        {
-                            writer.WriteLine("sendemail:" + sendemail);
-                        }
-                        else if (line.Contains("email:"))
-                        {
-                            writer.WriteLine("email:" + email);
-                        }
-                        else if (line.Contains("password:"))
-                        {
-                            writer.WriteLine("password:" + password);
-                        }
-                        else if (line.Contains("host:"))
-                        {
-                            writer.WriteLine("host:" + host);
-                        }
-                        else if (line.Contains("port:"))
-                        {
-                            writer.WriteLine("port:" + port);
-                        }
-                        else if (line.Contains("ss1:"))
-                        {
-                            writer.WriteLine("ss1:" + ss1);
-                        }
-                        else if (line.Contains("discordenable:"))
-                        {
-                            writer.WriteLine("discordenable:" + senddiscord);
-                        }
-                        else if (line.Contains("discordurl:"))
-                        {
-                            writer.WriteLine("discordurl:" + discordurl);
-                        }
-                    }
+                    writer.WriteLine("sendemail:" + sendemail);
+                    writer.WriteLine("email:" + email);
+                    writer.WriteLine("password:" + password);
+                    writer.WriteLine("host:" + host);
+                    writer.WriteLine("port:" + port);
+                    writer.WriteLine("ss1:" + ss1);
+                    writer.WriteLine("discordenable:" + senddiscord);
+                    writer.WriteLine("discordurl:" + discordurl);
+                    writer.WriteLine("tier1:" + t1);
+                    writer.WriteLine("tier2:" + t2);
+                    writer.WriteLine("tier3:" + t3);
+                    writer.WriteLine("tier4:" + t4);
+                    writer.WriteLine("tier5:" + t5);
+                    writer.WriteLine("tier6:" + t6);
+                    WriteToChat("Email Settings Saved to rarehunter.ini");
                 }
-
-                WriteToChat("Email Settings Saved to rarehunter.ini");
             }
             catch (Exception ex)
             {
@@ -172,7 +157,7 @@ namespace RareHunter
             Dictionary<string, string> temp = new Dictionary<string, string>();
 
             if (!File.Exists(filePath))
-                SaveIni(false, "", "", "", 0, false, false, "");
+                SaveIni(false, "", "", "", 0, false, false, "", true, true, true, true, true, true);
 
             foreach(string line in File.ReadAllLines(filePath))
             {

@@ -43,6 +43,17 @@
     </page>
     <page label=" Settings ">
       <control progid="DecalControls.Notebook" name="settingsMain">
+        <page label=" Notifications ">
+          <control progid="DecalControls.FixedLayout" clipped="">
+            <control progid="DecalControls.StaticText" name="notifyTierText" left="10" top="10" width="90" height="18" text="Notify For:"/>
+            <control progid="DecalControls.CheckBox" name="notifytier1" left="100" top="30" width="90" height="18" text=" Tier 1"/>
+            <control progid="DecalControls.CheckBox" name="notifytier2" left="100" top="50" width="90" height="18" text=" Tier 2"/>
+            <control progid="DecalControls.CheckBox" name="notifytier3" left="100" top="70" width="90" height="18" text=" Tier 3"/>
+            <control progid="DecalControls.CheckBox" name="notifytier4" left="100" top="90" width="90" height="18" text=" Tier 4"/>
+            <control progid="DecalControls.CheckBox" name="notifytier5" left="100" top="110" width="90" height="18" text=" Tier 5"/>
+            <control progid="DecalControls.CheckBox" name="notifytier6" left="100" top="130" width="90" height="18" text=" Tier 6"/>
+          </control>
+        </page>
         <page label=" Email ">
           <control progid="DecalControls.FixedLayout" clipped="">
             <control progid="DecalControls.StaticText" name="sendEmaillbl" left="10" top="10" width="90" height="18" text="Send Emails:"/>
