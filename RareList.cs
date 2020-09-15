@@ -17,6 +17,7 @@ namespace RareHunter
                                     ,Ben Ten's Crystal
                                     ,Berzerker's Crystal
                                     ,Brawler's Crystal
+                                    ,Knight's Crystal
                                     ,Chef's Crystal
                                     ,Converter's Crystal
                                     ,Corruptor's Crystal
