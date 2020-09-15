@@ -29,6 +29,7 @@ namespace RareHunter
                                     ,Hieromancer's Crystal
                                     ,Hunter's Crystal
                                     ,Imbuer's Crystal
+									,Knight's Crystal
                                     ,Lich's Pearl
                                     ,Life Giver's Crystal
                                     ,Lugian's Pearl
