@@ -541,7 +541,8 @@ namespace RareHunter
                         }
                         else
                         {
-                            rl.rareCount[wo.Name].count += 1;
+                            if(wo.Values(LongValueKey.RareId) != 0)
+                                rl.rareCount[wo.Name].count += 1;
                         }
                     }
                 }
