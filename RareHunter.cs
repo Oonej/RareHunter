@@ -541,8 +541,15 @@ namespace RareHunter
                         }
                         else
                         {
-                            if(wo.Values(LongValueKey.RareId) != 0)
+                            if(wo.Name.Equals("Pack"))
+                            {
+                                if (wo.Values(LongValueKey.RareId) != 0)
+                                    rl.rareCount[wo.Name].count += 1;
+                            }
+                            else
+                            {
                                 rl.rareCount[wo.Name].count += 1;
+                            }
                         }
                     }
                 }
