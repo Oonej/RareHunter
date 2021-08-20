@@ -29,7 +29,7 @@ namespace RareHunter
                                     ,Hieromancer's Crystal
                                     ,Hunter's Crystal
                                     ,Imbuer's Crystal
-									,Knight's Crystal
+				    ,Knight's Crystal
                                     ,Lich's Pearl
                                     ,Life Giver's Crystal
                                     ,Lugian's Pearl
@@ -53,7 +53,7 @@ namespace RareHunter
                                     ,Wayfarer's Pearl
                                     ,Zefir's Crystal",
                                     @"Archer's Jewel
-                                    ,Astyrian's Jewel
+                                    ,Astyrrian's Jewel
                                     ,Duelist's Jewel
                                     ,Executor's Jewel
                                     ,Gelid's Jewel
