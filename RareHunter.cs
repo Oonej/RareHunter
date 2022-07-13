@@ -7,6 +7,7 @@ using VirindiViewService.Controls;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Timers;
+using System.Net;
 
 /*
  * Created by Mag-nus. 8/19/2011, VVS added by Virindi-Inquisitor.
@@ -135,7 +136,9 @@ namespace RareHunter
                 LoadWindow();
                 LoadEmailSettings();
                 GenerateLists();
-                
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolTypeExtensions.Tls12;
+
                 EmailSender = new Email(email.Text, host.Text, int.Parse(port.Text), ss1.Checked, pass.Text);
                 DiscordSender = new Discord(discordurl.Text);
             }
