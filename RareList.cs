@@ -192,7 +192,7 @@ namespace RareHunter
                                     ,Infinite Deadly Armor Piercing Arrowheads
                                     ,Infinite Deadly Blunt Arrowheads
                                     ,Infinite Deadly Broad Arrowheads
-                                    ,Infinite Deadly Electric Arrowheads
+                                    ,Infinite Deadly Lightning Arrowheads
                                     ,Infinite Deadly Fire Arrowheads
                                     ,Infinite Deadly Frog Crotch Arrowheads
                                     ,Infinite Deadly Frost Arrowheads
