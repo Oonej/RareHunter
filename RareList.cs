@@ -215,13 +215,9 @@ namespace RareHunter
                                     ,Perennial Verdalim Dye
                                     ,Foolproof Peridot
                                     ,Pictograph of Coordination
-                                    ,Pictograph of Coordination
-                                    ,Pictograph of Endurance
                                     ,Pictograph of Endurance
                                     ,Pictograph of Focus
                                     ,Pictograph of Quickness
-                                    ,Pictograph of Quickness
-                                    ,Pictograph of Strength
                                     ,Pictograph of Strength
                                     ,Pictograph of Willpower
                                     ,Foolproof Red Garnet
