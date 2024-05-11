@@ -183,7 +183,7 @@ namespace RareHunter
                                     ,Ideograph of Fire Protection
                                     ,Ideograph of Frost Protection
                                     ,Ideograph of Lightning Protection
-                                    ,Ideograph of Mana Renewal
+                                    ,Ideograph of Battlemage's Blessing
                                     ,Ideograph of Piercing Protection
                                     ,Ideograph of Regeneration
                                     ,Ideograph of Revitalization
