@@ -148,7 +148,7 @@ namespace RareHunter
                                     ,Hieroglyph of Deception Mastery
                                     ,Hieroglyph of Dirty Fighting Mastery
                                     ,Hieroglyph of Dual Wield Mastery
-                                    ,Hieroglyph of Fealty
+                                    ,Hieroglyph of Fealty Mastery
                                     ,Hieroglyph of Finesse Weapon Mastery
                                     ,Hieroglyph of Fletching Mastery
                                     ,Hieroglyph of Healing Mastery
