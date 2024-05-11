@@ -90,8 +90,6 @@ namespace RareHunter
                                     ,Band of Elemental Harmony
                                     ,Bracelet of Binding
                                     ,Bracers of Leikotha's Tears
-                                    ,Bracers of Leikotha's Tears
-                                    ,Breastplate of Leikotha's Tears
                                     ,Breastplate of Leikotha's Tears
                                     ,Circle of Pure Thought
                                     ,Dread Marauder Shield
