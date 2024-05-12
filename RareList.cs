@@ -172,6 +172,7 @@ namespace RareHunter
                                     ,Hieroglyph of Shield Mastery
                                     ,Hieroglyph of Sneak Attack Mastery
                                     ,Hieroglyph of Sprint
+				    ,Hieroglyph of Summoning Mastery
                                     ,Hieroglyph of Two Handed Weapons Mastery
                                     ,Hieroglyph of Void Magic Mastery
                                     ,Hieroglyph of War Magic Mastery
