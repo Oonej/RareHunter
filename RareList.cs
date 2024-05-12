@@ -194,7 +194,7 @@ namespace RareHunter
                                     ,Infinite Deadly Broad Arrowheads
                                     ,Infinite Deadly Lightning Arrowheads
                                     ,Infinite Deadly Fire Arrowheads
-                                    ,Infinite Deadly Frog Crotch Arrowheads
+                                    ,Infinite Deadly Frog-Crotch Arrowheads
                                     ,Infinite Deadly Frost Arrowheads
                                     ,Infinite Elaborate Dried Rations
                                     ,Infinite Ivory
