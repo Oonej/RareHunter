@@ -90,8 +90,6 @@ namespace RareHunter
                                     ,Band of Elemental Harmony
                                     ,Bracelet of Binding
                                     ,Bracers of Leikotha's Tears
-                                    ,Bracers of Leikotha's Tears
-                                    ,Breastplate of Leikotha's Tears
                                     ,Breastplate of Leikotha's Tears
                                     ,Circle of Pure Thought
                                     ,Dread Marauder Shield
@@ -133,15 +131,15 @@ namespace RareHunter
                                     ,Unchained Prowess Ring
                                     ,Valkeer's Helm
                                     ,Weeping Ring
-                                    ,Winter's Heart",
-                                    @"Aquamarine Foolproof
-                                    ,Black Garnet Foolproof
-                                    ,Black Opal Foolproof
-                                    ,Emerald Foolproof
+                                    ,Winter's Heart Ring",
+                                    @"Foolproof Aquamarine
+                                    ,Foolproof Black Garnet
+                                    ,Foolproof Black Opal
+                                    ,Foolproof Emerald
                                     ,Eternal Health Kit
                                     ,Eternal Mana Kit
                                     ,Eternal Stamina Kit
-                                    ,Fire Opal Foolproof
+                                    ,Foolproof Fire Opal
                                     ,Hieroglyph of Alchemy Mastery
                                     ,Hieroglyph of Arcane Enlightenment
                                     ,Hieroglyph of Armor Tinkering Expertise
@@ -150,7 +148,7 @@ namespace RareHunter
                                     ,Hieroglyph of Deception Mastery
                                     ,Hieroglyph of Dirty Fighting Mastery
                                     ,Hieroglyph of Dual Wield Mastery
-                                    ,Hieroglyph of Fealty
+                                    ,Hieroglyph of Fealty Mastery
                                     ,Hieroglyph of Finesse Weapon Mastery
                                     ,Hieroglyph of Fletching Mastery
                                     ,Hieroglyph of Healing Mastery
@@ -174,6 +172,7 @@ namespace RareHunter
                                     ,Hieroglyph of Shield Mastery
                                     ,Hieroglyph of Sneak Attack Mastery
                                     ,Hieroglyph of Sprint
+				    ,Hieroglyph of Summoning Mastery
                                     ,Hieroglyph of Two Handed Weapons Mastery
                                     ,Hieroglyph of Void Magic Mastery
                                     ,Hieroglyph of War Magic Mastery
@@ -185,24 +184,24 @@ namespace RareHunter
                                     ,Ideograph of Fire Protection
                                     ,Ideograph of Frost Protection
                                     ,Ideograph of Lightning Protection
-                                    ,Ideograph of Mana Renewal
+                                    ,Ideograph of Battlemage's Blessing
                                     ,Ideograph of Piercing Protection
                                     ,Ideograph of Regeneration
                                     ,Ideograph of Revitalization
-                                    ,Imperial Topaz Foolproof
+                                    ,Foolproof Imperial Topaz
                                     ,Infinite Deadly Acid Arrowheads
                                     ,Infinite Deadly Armor Piercing Arrowheads
                                     ,Infinite Deadly Blunt Arrowheads
                                     ,Infinite Deadly Broad Arrowheads
-                                    ,Infinite Deadly Electric Arrowheads
+                                    ,Infinite Deadly Lightning Arrowheads
                                     ,Infinite Deadly Fire Arrowheads
-                                    ,Infinite Deadly Frog Crotch Arrowheads
+                                    ,Infinite Deadly Frog-Crotch Arrowheads
                                     ,Infinite Deadly Frost Arrowheads
                                     ,Infinite Elaborate Dried Rations
                                     ,Infinite Ivory
                                     ,Infinite Leather
                                     ,Infinite Simple Dried Rations
-                                    ,Jet Foolproof
+                                    ,Foolproof Jet
                                     ,Limitless Lockpick
                                     ,Pack
                                     ,Perennial Argenory Dye
@@ -215,18 +214,14 @@ namespace RareHunter
                                     ,Perennial Relanim Dye
                                     ,Perennial Thananim Dye
                                     ,Perennial Verdalim Dye
-                                    ,Peridot Foolproof
+                                    ,Foolproof Peridot
                                     ,Pictograph of Coordination
-                                    ,Pictograph of Coordination
-                                    ,Pictograph of Endurance
                                     ,Pictograph of Endurance
                                     ,Pictograph of Focus
                                     ,Pictograph of Quickness
-                                    ,Pictograph of Quickness
-                                    ,Pictograph of Strength
                                     ,Pictograph of Strength
                                     ,Pictograph of Willpower
-                                    ,Red Garnet Foolproof
+                                    ,Foolproof Red Garnet
                                     ,Rune of Acid Bane
                                     ,Rune of Blade Bane
                                     ,Rune of Blood Drinker
@@ -244,10 +239,10 @@ namespace RareHunter
                                     ,Rune of Portal Recall
                                     ,Rune of Spirit Drinker
                                     ,Rune of Swift Killer
-                                    ,Sunstone Foolproof
-                                    ,White Sapphire Foolproof
-                                    ,Yellow Topaz Foolproof
-                                    ,Zircon Foolproof",
+                                    ,Foolproof Sunstone
+                                    ,Foolproof White Sapphire
+                                    ,Foolproof Yellow Topaz
+                                    ,Foolproof Zircon",
                                     @"Assassin's Whisper
                                     ,Baton of Tirethas
                                     ,Bearded Axe of Souia-Vey
@@ -260,7 +255,7 @@ namespace RareHunter
                                     ,Chitin Cracker
                                     ,Corsair's Arc
                                     ,Count Renari's Equalizer
-                                    ,Dart Flicker
+                                    ,Dart-Flicker
                                     ,Death's Grip Staff
                                     ,Decapitator's Blade
                                     ,Defiler of Milantos
